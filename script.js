@@ -1,22 +1,12 @@
-/* eslint-disable max-classes-per-file */
-
-// class Book {
-//   constructor(title, author, pages, read) {
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.read = read;
-//   }
-// }
-
 function Book(title, author, pages, read) {
-  return {
-    title,
-    author,
-    pages,
-    read,
+    return {
+    title: title,
+    author: author,
+    pages: pages,
+    read: read
   };
 }
+
 
 function change(e) {
   const elem = document.getElementById(e.target.id);
@@ -54,7 +44,7 @@ class UI {
 
 document.getElementById('book-form').addEventListener('submit', (e) => {
   const book = Object.create(Book);
-
+  
   book.title = document.getElementById('title').value;
   book.author = document.getElementById('author').value;
   book.pages = document.getElementById('pages').value;
@@ -64,7 +54,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
     UI.addBooktoList(book);
     UI.clearFields();
   }
-
+  
   e.preventDefault();
 });
 
