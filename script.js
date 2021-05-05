@@ -1,47 +1,40 @@
-function Book(title, author, pages, read) {
-    return {
-    title: title,
-    author: author,
-    pages: pages,
-    read: read
-  };
-}
-
-
-function change(e) {
-  const elem = document.getElementById(e.target.id);
-  if (elem.innerHTML === 'Read') elem.innerHTML = 'Unread';
-  else elem.innerHTML = 'Read';
+class Book {
+    constructor(title, author, pages, read) {
+        return {
+            title,
+            author,
+            pages,
+            read
+        }
+    }
 }
 class UI {
-  static addBooktoList(book) {
-    const list = document.getElementById('book-list');
-    const row = document.createElement('tr');
-    row.innerHTML = `
+    static addBooktoList(book) {
+        const list = document.getElementById('book-list');
+        const row = document.createElement('tr');
+        row.innerHTML = `
           <td>${book.title}</td>
           <td>${book.author}</td>
           <td>${book.pages}</td>
           <td ><button class='btn btn-success' id=${book.id} >${book.read}</button></td>
           <td><a href='' class='delete'>X</a></td>
         `;
-    list.appendChild(row);
-    const td = document.getElementById(book.id);
-    td.addEventListener('click', (e) => change(e));
-  }
-
-  static deleteBook(target) {
-    if (target.className === 'delete') {
-      target.parentElement.parentElement.remove();
+        list.appendChild(row);
+        const td = document.getElementById(book.id);
+        td.addEventListener('click', (e) => change(e));
     }
-  }
-
-  static clearFields() {
-    document.getElementById('title').value = '';
-    document.getElementById('author').value = '';
-    document.getElementById('pages').value = '';
-  }
+    static deleteBook(target) {
+        if (target.className === 'delete') { target.parentElement.parentElement.remove(); }
+    }
+    static clearFields() {
+        document.getElementById('title' && 'author' && 'pages').value = '';
+    }
 }
-
+function change(e) {
+  const elem = document.getElementById(e.target.id);
+  if (elem.innerHTML === 'Read') elem.innerHTML = 'Unread';
+  else elem.innerHTML = 'Read';
+}
 document.getElementById('book-form').addEventListener('submit', (e) => {
   const book = Object.create(Book);
   
@@ -51,10 +44,8 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   book.read = document.getElementById('read').value;
 
   if (book.title && book.author && book.pages) {
-    UI.addBooktoList(book);
-    UI.clearFields();
+    UI.addBooktoList(book) && UI.clearFields();
   }
-  
   e.preventDefault();
 });
 
