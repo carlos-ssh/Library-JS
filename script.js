@@ -1,15 +1,4 @@
-/* eslint-disable max-classes-per-file */
-
-// class Book {
-//   constructor(title, author, pages, read) {
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.read = read;
-//   }
-// }
-
-function Book(title, author, pages, read) {
+itle, author, pages, read) {
   return {
     title,
     author,
