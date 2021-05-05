@@ -1,17 +1,13 @@
 class Book {
     constructor(title, author, pages, read) {
         return {
-            title,
-            author,
-            pages,
-            read
+            title, author, pages, read
         }
     }
 }
 class UI {
     static addBooktoList(book) {
-        const list = document.getElementById('book-list');
-        const row = document.createElement('tr');
+        const list = document.getElementById('book-list'), row = document.createElement('tr');
         row.innerHTML = `
           <td>${book.title}</td>
           <td>${book.author}</td>
